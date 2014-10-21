@@ -158,6 +158,8 @@
             (context fs_rootfs (s.sys.u o.r t (systemlow systemlow)))
 
             (genfscon "rootfs" "/" fs_rootfs)
+
+            (filecon "/" dir ())
         )
 
         (block sysfs
