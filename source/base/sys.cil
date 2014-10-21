@@ -22,8 +22,6 @@
         (userlevel u systemlow)
         (userrange u (systemlow systemhigh))
 
-        (call sys_rw_sysctl_security_files (t)) ; FIXME
-
         (optional sys_optional_unconfined
             (call unconfined_subject (t)))
     )

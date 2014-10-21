@@ -65,6 +65,9 @@
     )
 )
 
+(call sys_rw_sysctl_security_files (unconfined_subject)) ; FIXME
+(call sys_rw_sysctl_usermodehelper_files (unconfined_subject)) ; FIXME
+
 (allow unconfined_subject self
     all_capability_perms_except_sys_module_and_sys_nice)
 (allow unconfined_subject self
