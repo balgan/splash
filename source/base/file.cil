@@ -1,0 +1,42 @@
+(defaultrole file target)
+(defaultrole dir target)
+(defaultrole lnk_file target)
+(defaultrole chr_file target)
+(defaultrole blk_file target)
+(defaultrole sock_file target)
+(defaultrole fifo_file target)
+
+(typeattribute file_object)
+(typeattribute file_unconfined_subject)
+
+(block file
+    (blockabstract file)
+        (type t)
+        (call file_object (t))
+)
+
+(in o
+    (block file
+        (blockinherit file)
+
+        (call fs_associate_tmpfs (t)) ; FIXME
+
+        (context file_file (s.sys.u o.r t (systemlow systemlow)))
+
+        (filecon "/.*" any file_file)
+    )
+)
+
+(call fs_associate_fs (file_object))
+
+(allow file_unconfined_subject file_object (all_file_objects (not_entrypoint_and_execmod)))
+
+(macro file_object ((type ARG1))
+    (call object (ARG1))
+    (typeattributeset file_object ARG1))
+
+(macro file_execmod_all_files ((type ARG1))
+    (allow ARG1 file_object (file (execmod))))
+
+(macro file_unconfined_subject ((type ARG1))
+    (typeattributeset file_unconfined_subject ARG1))
