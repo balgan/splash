@@ -30,8 +30,8 @@ INSTALLATION
 3. Create "/etc/selinux/config" file with the following:
         SELINUX=enforcing
         SELINUXTYPE=splash
-4. Change directory to /etc/selinux/splash/source
-5. Execute "/etc/selinux/splash/splash.sh"
+4. Change directory to /etc/selinux/splash
+5. Execute "splash.sh"
 6. Execute "setenforce 0" to change SELinux mode to permissive
 7. Execute "load_policy" to load Splash
 8. Execute "restorecon -R -v -F /" to reset file contexts
