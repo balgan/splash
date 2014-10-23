@@ -34,7 +34,7 @@
 (typeattribute subject_not_subject_entry_file_object)
 (typeattributeset subject_not_subject_entry_file_object (not
     (subject_entry_file_object)))
-(neverallow subject_not_subject subject_not_subject_entry_file_object
+(neverallow subject subject_not_subject_entry_file_object
     (file (entrypoint)))
 
 (typeattribute subject_not_subject)
